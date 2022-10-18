@@ -21,6 +21,11 @@ function generatePassword() {
   var specialsConfirm = confirm("Press ok if you want special characters in your password.");
 
   if (specialsConfirm) {passwordStart += specials}
+
+  var numbersConfirm = confirm("Press ok if you want numbers in your password.")
+
+  if (numbersConfirm) {passwordStart += numbers}
+  
 }
 // Write password to the #password input
 function writePassword() {
