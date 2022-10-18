@@ -9,6 +9,7 @@ function generatePassword() {
   var specials = "!@#$%^&*()-_=+[{]};:,<.>/?";
   var numbers = "0123456789";
   var passwordStart= "";
+  var password = "";
 
   var uppercaseConfirm = confirm("Press ok if you want Uppercase characters in your password.");
 
@@ -22,10 +23,22 @@ function generatePassword() {
 
   if (specialsConfirm) {passwordStart += specials}
 
-  var numbersConfirm = confirm("Press ok if you want numbers in your password.")
+  var numbersConfirm = confirm("Press ok if you want numbers in your password.");
 
   if (numbersConfirm) {passwordStart += numbers}
-  
+
+  if (!uppercaseConfirm && !lowercaseConfirm && !numbersConfirm && !specialsConfirm) {return}
+
+  var passwordLength = prompt("How long would you like your password to be?");
+
+  if (passwordLength < 8 || passwordLength > 128) {alert("Please choose a number between 8 and 128.");return}
+
+  for (let i = 0; i < passwordLength; i++ ) {
+    password +=
+      passwordStart[Math.floor(Math.random() * passwordStart.length)];
+    }
+   return password;
+
 }
 // Write password to the #password input
 function writePassword() {
